@@ -2230,6 +2230,18 @@
       { id: 'luxo', name: 'Sedã de Luxo', price: 450000, maint: 2800, happinessBonus: 27, icon: '🚘', desc: 'Veículo premium com alto custo de propriedade.' },
       { id: 'esportivo', name: 'Esportivo Alemão (Porsche 911)', price: 800000, maint: 5000, happinessBonus: 32, icon: '🏎️', desc: 'Esportivo de alto desempenho e manutenção elevada.' },
       { id: 'supercarro', name: 'Supercarro Italiano', price: 2500000, maint: 16000, happinessBonus: 45, icon: '🏎️', desc: 'Carro de luxo extremo para o patrimônio milionário.' },
+      { id: 'gar_bmw_m3', name: 'BMW M3 Competition', price: 850000, maint: 5500, happinessBonus: 34, icon: '🏎️', rarity: 'lendario', desc: 'Esportivo alemão de alto desempenho e presença marcante.' },
+      { id: 'gar_bmw_i8', name: 'BMW i8', price: 1100000, maint: 7000, happinessBonus: 37, icon: '🚘', rarity: 'lendario', desc: 'Esportivo híbrido de design futurista e produção limitada.' },
+      { id: 'gar_bmw_7', name: 'BMW Série 7', price: 1250000, maint: 7500, happinessBonus: 36, icon: '🚘', rarity: 'lendario', desc: 'Sedã executivo de luxo com alto nível de conforto.' },
+      { id: 'gar_ferrari_488', name: 'Ferrari 488 GTB', price: 1800000, maint: 12000, happinessBonus: 48, icon: '🏎️', rarity: 'lendario', desc: 'Superesportivo italiano lendário entre colecionadores.' },
+      { id: 'gar_ferrari_sf90', name: 'Ferrari SF90 Stradale', price: 3200000, maint: 22000, happinessBonus: 55, icon: '🏎️', rarity: 'lendario', desc: 'Máquina híbrida de desempenho extremo e grande exclusividade.' },
+      { id: 'gar_lambo_huracan', name: 'Lamborghini Huracán', price: 1900000, maint: 13000, happinessBonus: 50, icon: '🏎️', rarity: 'lendario', desc: 'Esportivo italiano de design agressivo e alto desempenho.' },
+      { id: 'gar_lambo_aventador', name: 'Lamborghini Aventador', price: 3000000, maint: 20000, happinessBonus: 57, icon: '🏎️', rarity: 'lendario', desc: 'Um dos grandes ícones da era dos supercarros.' },
+      { id: 'gar_lambo_revuelto', name: 'Lamborghini Revuelto', price: 4200000, maint: 28000, happinessBonus: 62, icon: '⚡', rarity: 'lendario', desc: 'Híbrido de altíssimo desempenho para coleções de elite.' },
+      { id: 'gar_bugatti_chiron', name: 'Bugatti Chiron', price: 18000000, maint: 140000, happinessBonus: 78, icon: '🏁', rarity: 'lendario', desc: 'Hipercarro extremamente raro e poderoso.' },
+      { id: 'gar_bugatti_veyron', name: 'Bugatti Veyron', price: 12000000, maint: 95000, happinessBonus: 72, icon: '🏁', rarity: 'lendario', desc: 'Um clássico moderno entre os hipercarros mais desejados.' },
+      { id: 'gar_mclaren_720s', name: 'McLaren 720S', price: 2500000, maint: 17000, happinessBonus: 52, icon: '🏎️', rarity: 'lendario', desc: 'Supercarro britânico focado em desempenho e engenharia.' },
+      { id: 'gar_mclaren_p1', name: 'McLaren P1', price: 9000000, maint: 70000, happinessBonus: 68, icon: '⚡', rarity: 'lendario', desc: 'Ícone híbrido de produção extremamente limitada.' },
       { id: 'helicoptero', name: 'Helicóptero Executivo Biturbina', price: 12000000, maint: 70000, happinessBonus: 60, icon: '🚁', desc: 'Transporte executivo com custo operacional elevado.' },
       { id: 'jato', name: 'Jato Particular Intercontinental', price: 120000000, maint: 550000, happinessBonus: 85, icon: '✈️', desc: 'Aeronave particular para patrimônio extraordinário.' },
       { id: 'iate', name: 'Mega Iate de Alto Luxo de 90 Metros', price: 400000000, maint: 2200000, happinessBonus: 100, icon: '🛥️', desc: 'Patrimônio de luxo com manutenção e operação gigantescas.' },
@@ -2404,10 +2416,10 @@
 
 
     const COLLECTION_RARITIES = {
-      comum: { name: 'Comum', icon: '🟢', weight: 80, className: 'common' },
-      raro: { name: 'Raro', icon: '🔵', weight: 17, className: 'rare' },
-      mitico: { name: 'Mítico', icon: '🟣', weight: 2, className: 'mythic' },
-      lendario: { name: 'Lendário', icon: '🟡', weight: 1, className: 'legendary' }
+      comum: { name: 'Comum', icon: '🟢', weight: 89.5, className: 'common' },
+      raro: { name: 'Raro', icon: '🔵', weight: 9, className: 'rare' },
+      mitico: { name: 'Mítico', icon: '🟣', weight: 1, className: 'mythic' },
+      lendario: { name: 'Lendário', icon: '🟡', weight: 0.5, className: 'legendary' }
     };
 
     // Estrutura modular: novos itens podem ser adicionados sem alterar o sistema.
@@ -2915,31 +2927,31 @@
           this.state.stats.totalDays++;
 
           // Necessidades básicas: alimentação e sono agora têm impacto real.
-          this.state.hunger = Math.max(0, this.state.hunger - 15);
-          this.state.sleepDebt = Math.min(100, this.state.sleepDebt + 15);
+          this.state.hunger = Math.max(0, this.state.hunger - 8);
+          this.state.sleepDebt = Math.min(100, this.state.sleepDebt + 8);
 
           // Fome e privação de sono afetam saúde e energia.
           if (this.state.hunger <= 10) {
             this.state.energy = Math.max(0, this.state.energy - 12);
             this.state.happiness = Math.max(0, this.state.happiness - 3);
-            this.state.health = Math.max(1, this.state.health - 6);
+            this.state.health = Math.max(1, this.state.health - 2);
           } else if (this.state.hunger < 25) {
             this.state.energy = Math.max(0, this.state.energy - 6);
             this.state.happiness = Math.max(0, this.state.happiness - 2);
-            this.state.health = Math.max(1, this.state.health - 2);
+            this.state.health = Math.max(1, this.state.health - 1);
           }
 
           if (this.state.sleepDebt >= 85) {
             this.state.energy = Math.max(0, this.state.energy - 10);
             this.state.happiness = Math.max(0, this.state.happiness - 3);
-            this.state.health = Math.max(1, this.state.health - 5);
+            this.state.health = Math.max(1, this.state.health - 2);
           } else if (this.state.sleepDebt >= 60) {
             this.state.energy = Math.max(0, this.state.energy - 5);
-            this.state.health = Math.max(1, this.state.health - 2);
+            this.state.health = Math.max(1, this.state.health - 1);
           }
 
           if (this.state.energy <= 10) {
-            this.state.health = Math.max(1, this.state.health - 2);
+            this.state.health = Math.max(1, this.state.health - 1);
           }
 
           // Happiness slight decay.
@@ -3480,13 +3492,12 @@
 
       /* COLLECTION SYSTEM */
       getCollectionRarityRoll() {
-        // Probabilidades padrão: Comum 80%, Raro 17%, Mítico 2%, Lendário 1%.
-        // A raridade é sorteada ANTES do item, garantindo que cada item só possa
-        // aparecer dentro da sua própria faixa de raridade.
+        // Probabilidades: Comum 89,5%, Raro 9%, Mítico 1%, Lendário 0,5%.
+        // A raridade é sorteada antes do item, respeitando as chances configuradas.
         const roll = Math.random() * 100;
-        if (roll < 80) return 'comum';
-        if (roll < 97) return 'raro';
-        if (roll < 99) return 'mitico';
+        if (roll < 89.5) return 'comum';
+        if (roll < 98.5) return 'raro';
+        if (roll < 99.5) return 'mitico';
         return 'lendario';
       },
 
@@ -4185,7 +4196,10 @@
                 <div class="card-info">
                   <div class="card-title">
                     <span>${veh.name}</span>
-                    ${isCurrent ? '<span style="color: var(--success); font-size: 0.8rem;">● Na Garagem</span>' : ''}
+                    <span style="display:flex;gap:8px;align-items:center;">
+                      ${veh.rarity === 'lendario' ? '<span style="color:var(--gold);font-size:0.72rem;font-weight:800;text-transform:uppercase;">★ Lendário</span>' : ''}
+                      ${isCurrent ? '<span style="color: var(--success); font-size: 0.8rem;">● Na Garagem</span>' : ''}
+                    </span>
                   </div>
                   <div class="card-desc">${veh.desc}</div>
                 </div>
@@ -4648,6 +4662,1422 @@
         document.getElementById('nw-total').innerText = Formatter.money(s.netWorth);
       }
     };
+
+
+    /* ==========================================================================
+       LIFERPG EXPANSION PACK — INCREMENTAL UPDATE
+       Preserva os sistemas existentes e adiciona novos sistemas de endgame.
+       ========================================================================== */
+    (() => {
+      // ---- New collection cars: all are legendary by design. ----
+      const EXPANSION_CARS = [
+        {id:'col_bmw_m3',name:'BMW M3 Competition',category:'carros',rarity:'lendario',description:'Esportivo alemão de alto desempenho e presença marcante.',value:850000,icon:'🏎️'},
+        {id:'col_bmw_i8',name:'BMW i8',category:'carros',rarity:'lendario',description:'Um esportivo híbrido de design futurista e produção limitada.',value:1100000,icon:'🚘'},
+        {id:'col_bmw_7',name:'BMW Série 7',category:'carros',rarity:'lendario',description:'Sedã executivo de luxo com alto nível de conforto.',value:1250000,icon:'🚘'},
+        {id:'col_ferrari_488',name:'Ferrari 488 GTB',category:'carros',rarity:'lendario',description:'Superesportivo italiano lendário entre colecionadores.',value:1800000,icon:'🏎️'},
+        {id:'col_ferrari_sf90',name:'Ferrari SF90 Stradale',category:'carros',rarity:'lendario',description:'Máquina híbrida de desempenho extremo e grande exclusividade.',value:3200000,icon:'🏎️'},
+        {id:'col_lambo_huracan',name:'Lamborghini Huracán',category:'carros',rarity:'lendario',description:'Esportivo italiano de design agressivo e alto desempenho.',value:1900000,icon:'🏎️'},
+        {id:'col_lambo_aventador',name:'Lamborghini Aventador',category:'carros',rarity:'lendario',description:'Um dos grandes ícones da era dos supercarros.',value:3000000,icon:'🏎️'},
+        {id:'col_lambo_revuelto',name:'Lamborghini Revuelto',category:'carros',rarity:'lendario',description:'Híbrido de altíssimo desempenho para coleções de elite.',value:4200000,icon:'⚡'},
+        {id:'col_bugatti_chiron',name:'Bugatti Chiron',category:'carros',rarity:'lendario',description:'Hipercarro extremamente raro e poderoso.',value:18000000,icon:'🏁'},
+        {id:'col_bugatti_veyron',name:'Bugatti Veyron',category:'carros',rarity:'lendario',description:'Um clássico moderno entre os hipercarros mais desejados.',value:12000000,icon:'🏁'},
+        {id:'col_mclaren_720s',name:'McLaren 720S',category:'carros',rarity:'lendario',description:'Supercarro britânico focado em desempenho e engenharia.',value:2500000,icon:'🏎️'},
+        {id:'col_mclaren_p1',name:'McLaren P1',category:'carros',rarity:'lendario',description:'Ícone híbrido de produção extremamente limitada.',value:9000000,icon:'⚡'}
+      ];
+      COLLECTIONS_DATA.push(...EXPANSION_CARS);
+
+      // ---- Special island properties: multiple islands may be owned simultaneously. ----
+      const ISLANDS_DATA = [
+        {id:'ilha_privada',name:'Ilha Privada',price:500000000,maint:1200000,icon:'🏝️',desc:'Uma ilha particular exclusiva para quem alcançou um patrimônio extraordinário.'},
+        {id:'ilha_luxo',name:'Ilha de Luxo',price:1500000000,maint:3500000,icon:'🌴',desc:'Resort privado com estrutura de luxo e manutenção elevada.'},
+        {id:'ilha_paradisiaca',name:'Ilha Paradisíaca',price:5000000000,maint:10000000,icon:'🌊',desc:'Um patrimônio de endgame com praias privadas e estrutura completa.'},
+        {id:'ilha_superior',name:'Arquipélago Privado',price:15000000000,maint:30000000,icon:'🏝️',desc:'Um pequeno arquipélago particular para colecionadores de patrimônio extremo.'}
+      ];
+
+      const COUNTRY_PRICE = 1000000000000;
+
+      // ---- Objectives: varied goals covering the game's existing systems. ----
+      const EXPANSION_OBJECTIVES = [
+        {id:'exp_milionario',title:'Tornar-se Milionário',check:s=>s.netWorth>=1000000,rewardText:'+20 Reputação',rewardFn:s=>s.reputation+=20},
+        {id:'exp_bilionario',title:'Tornar-se Bilionário',check:s=>s.netWorth>=1000000000,rewardText:'+50 Reputação',rewardFn:s=>s.reputation+=50},
+        {id:'exp_trilionario',title:'Chegar a R$ 1 Trilhão',check:s=>s.netWorth>=1000000000000,rewardText:'+100 Reputação',rewardFn:s=>s.reputation+=100},
+        {id:'exp_curso5',title:'Concluir 5 cursos',check:s=>s.completedCourses.length>=5,rewardText:'+15 Reputação',rewardFn:s=>s.reputation+=15},
+        {id:'exp_curso10',title:'Concluir todos os cursos disponíveis',check:s=>s.completedCourses.length>=EDUCATION_DATA.length,rewardText:'+30 Reputação',rewardFn:s=>s.reputation+=30},
+        {id:'exp_rep100',title:'Alcançar 100 de Reputação',check:s=>s.reputation>=100,rewardText:'+R$ 10.000',rewardFn:s=>s.cash+=10000},
+        {id:'exp_rep200',title:'Reputação de Elite — 200 ⭐',check:s=>s.reputation>=200,rewardText:'+R$ 50.000',rewardFn:s=>s.cash+=50000},
+        {id:'exp_imoveis3',title:'Possuir 3 patrimônios especiais',check:s=>Object.keys(s.islandsOwned||{}).length>=3,rewardText:'+25 Reputação',rewardFn:s=>s.reputation+=25},
+        {id:'exp_ilha',title:'Comprar uma ilha',check:s=>Object.keys(s.islandsOwned||{}).length>=1,rewardText:'+20 Felicidade',rewardFn:s=>s.happiness=Math.min(100,s.happiness+20)},
+        {id:'exp_todas_ilhas',title:'Colecionar todas as ilhas',check:s=>ISLANDS_DATA.every(i=>s.islandsOwned&&s.islandsOwned[i.id]),rewardText:'+50 Reputação',rewardFn:s=>s.reputation+=50},
+        {id:'exp_carros10',title:'Encontrar 10 carros',check:s=>Object.keys(s.collectionHistory||{}).filter(id=>{const x=COLLECTIONS_DATA.find(i=>i.id===id);return x&&x.category==='carros';}).length>=10,rewardText:'+20 Reputação',rewardFn:s=>s.reputation+=20},
+        {id:'exp_lendarios',title:'Encontrar 10 itens lendários',check:s=>Object.keys(s.collectionHistory||{}).filter(id=>{const x=COLLECTIONS_DATA.find(i=>i.id===id);return x&&x.rarity==='lendario';}).length>=10,rewardText:'+30 Reputação',rewardFn:s=>s.reputation+=30},
+        {id:'exp_colec25',title:'Descobrir 25 itens',check:s=>Object.keys(s.collectionHistory||{}).length>=25,rewardText:'+10 Reputação',rewardFn:s=>s.reputation+=10},
+        {id:'exp_colec50',title:'Descobrir 50 itens',check:s=>Object.keys(s.collectionHistory||{}).length>=50,rewardText:'+25 Reputação',rewardFn:s=>s.reputation+=25},
+        {id:'exp_colec100',title:'Completar 100% da coleção',check:s=>Object.keys(s.collectionHistory||{}).length>=COLLECTIONS_DATA.length,rewardText:'+100 Reputação',rewardFn:s=>s.reputation+=100},
+        {id:'exp_empresa',title:'Possuir uma empresa de alto nível',check:s=>Object.values(s.businesses||{}).some(b=>b&&b.owned&&b.level>=10),rewardText:'+30 Reputação',rewardFn:s=>s.reputation+=30},
+        {id:'exp_carreira',title:'Trabalhar por 100 dias',check:s=>(s.stats.totalCareerDays||0)>=100,rewardText:'+25 Reputação',rewardFn:s=>s.reputation+=25},
+        {id:'exp_patrimonio',title:'Possuir R$ 100 milhões em patrimônio',check:s=>s.netWorth>=100000000,rewardText:'+40 Reputação',rewardFn:s=>s.reputation+=40},
+        {id:'exp_império',title:'Império — empresa + ilha + coleção avançada',check:s=>Object.values(s.businesses||{}).some(b=>b&&b.owned&&b.level>=5)&&Object.keys(s.islandsOwned||{}).length>=1&&Object.keys(s.collectionHistory||{}).length>=25,rewardText:'+75 Reputação',rewardFn:s=>s.reputation+=75},
+        {id:'exp_magnata',title:'Magnata Supremo',check:s=>s.netWorth>=10000000&&s.education>=80&&s.reputation>=100&&Object.keys(s.islandsOwned||{}).length>=1,rewardText:'+100 Reputação',rewardFn:s=>s.reputation+=100}
+      ];
+      OBJECTIVES_DATA.push(...EXPANSION_OBJECTIVES);
+
+      // ---- Course duration rebalance: gradual, meaningful progression. ----
+      const COURSE_DAYS = {
+        basico:2, tecnico:5, comercial:5, certificacao:8, idiomas:8,
+        faculdade:30, pos:20, mba:25, mestrado:35, doutorado:45, executive:30
+      };
+      EDUCATION_DATA.forEach(c => { if (COURSE_DAYS[c.id]) c.days = COURSE_DAYS[c.id]; });
+
+      // ---- Persistent state defaults. Old saves receive these fields automatically. ----
+      const EXPANSION_DEFAULTS = {
+        islandsOwned: {},
+        countryOwned: false,
+        benefit: {active:false, nextPaymentDay:null, totalReceived:0},
+        expenses: {debt:0, missedPayments:0, pending:[], lastMonth:[], totalPaid:0},
+        prisonDays: 0,
+        restDebt: 0,
+        companySaleNextDay: 0,
+        companySaleHistory: [],
+        expansionVersion: 1
+      };
+      Object.assign(Game.state, JSON.parse(JSON.stringify(EXPANSION_DEFAULTS)));
+
+      function ensureExpansionState() {
+        const s = Game.state;
+        s.islandsOwned = (s.islandsOwned && typeof s.islandsOwned === 'object') ? s.islandsOwned : {};
+        s.benefit = Object.assign({}, EXPANSION_DEFAULTS.benefit, s.benefit || {});
+        s.expenses = Object.assign({}, EXPANSION_DEFAULTS.expenses, s.expenses || {});
+        s.expenses.pending = Array.isArray(s.expenses.pending) ? s.expenses.pending : [];
+        s.expenses.lastMonth = Array.isArray(s.expenses.lastMonth) ? s.expenses.lastMonth : [];
+        s.companySaleHistory = Array.isArray(s.companySaleHistory) ? s.companySaleHistory : [];
+        s.prisonDays = Number(s.prisonDays) || 0;
+        s.restDebt = Number(s.restDebt) || 0;
+        s.companySaleNextDay = Number(s.companySaleNextDay) || 0;
+        s.countryOwned = Boolean(s.countryOwned);
+      }
+
+      const originalLoadSave = Game.loadSave.bind(Game);
+      Game.loadSave = function() {
+        originalLoadSave();
+        ensureExpansionState();
+      };
+
+      // ---- Utility helpers ----
+      function inPrison() {
+        return Game.state.prisonDays > 0;
+      }
+      function prisonBlock(message='Você está cumprindo sua pena e precisa aguardar a liberação.') {
+        if (!inPrison()) return false;
+        UI.notify('🚔 Em prisão', message, 'danger', '🚔');
+        AudioEngine.buzzer();
+        return true;
+      }
+      function reputationRequirement(job) {
+        const monthly = job.monthlySalary || job.salary * 26;
+        if (monthly >= 50000) return 200;
+        if (monthly >= 20000) return 100;
+        if (monthly >= 10000) return 50;
+        if (monthly >= 5000) return 20;
+        return 0;
+      }
+
+      // ---- Career: benefit option ----
+      const originalWork = Game.work.bind(Game);
+      Game.work = function() {
+        ensureExpansionState();
+        if (this.state.benefit.active) {
+          UI.notify('Benefício ativo', 'Saia do benefício antes de voltar a trabalhar.', 'warning', '🏠');
+          return;
+        }
+        if (prisonBlock('Você não pode trabalhar durante os 4 meses de prisão.')) return;
+        originalWork();
+        if (this.state.stats.shiftsWorked > 0 && this.state.stats.shiftsWorked % 10 === 0) {
+          this.state.reputation += 2;
+          UI.notify('⭐ Experiência reconhecida', '+2 de Reputação por experiência profissional.', 'success', '⭐');
+        }
+      };
+
+      const originalApplyJob = Game.applyJob.bind(Game);
+      Game.applyJob = function(jobId) {
+        if (prisonBlock('Você não pode assumir empregos durante a prisão.')) return;
+        if (this.state.benefit.active) {
+          UI.notify('Benefício ativo', 'Saia do benefício antes de procurar um emprego.', 'warning', '🏠');
+          return;
+        }
+        const job = JOBS_DATA.find(j=>j.id===jobId);
+        if (job) {
+          const reqRep = reputationRequirement(job);
+          if (this.state.reputation < reqRep) {
+            UI.notify('Reputação insuficiente', `Você precisa de ${reqRep} ⭐ de reputação para este emprego.`, 'warning', '⭐');
+            return;
+          }
+        }
+        originalApplyJob(jobId);
+      };
+
+      Game.joinBenefit = function() {
+        ensureExpansionState();
+        if (inPrison()) return prisonBlock();
+        if (this.state.job !== 'desempregado') {
+          UI.notify('Saia do emprego primeiro', 'Você precisa estar desempregado para se inscrever no benefício.', 'warning', '💼');
+          return;
+        }
+        if (this.state.benefit.active) {
+          UI.notify('Benefício já ativo', 'Você já está recebendo R$ 700 por mês.', 'warning', '🏠');
+          return;
+        }
+        if (!confirm('Confirmar inscrição no benefício de R$ 700/mês? Enquanto estiver ativo, você não poderá trabalhar.')) return;
+        this.state.benefit.active = true;
+        this.state.benefit.nextPaymentDay = this.state.stats.totalDays + (31 - this.state.day);
+        UI.notify('Benefício ativado', 'Você receberá R$ 700 no fechamento de cada mês.', 'success', '🏠');
+        this.recalculateNetWorth();
+        UI.renderAll();
+      };
+
+      Game.leaveBenefit = function() {
+        ensureExpansionState();
+        if (!this.state.benefit.active) return;
+        this.state.benefit.active = false;
+        this.state.benefit.nextPaymentDay = null;
+        UI.notify('Benefício encerrado', 'Agora você pode procurar um emprego normalmente.', 'success', '💼');
+        UI.renderAll();
+      };
+
+      // ---- Reputation requirement shown without replacing existing education/experience requirements. ----
+      const originalRenderJobs = UI.renderJobs.bind(UI);
+      UI.renderJobs = function() {
+        originalRenderJobs();
+        const cards = document.querySelectorAll('#jobs-grid .item-card');
+        JOBS_DATA.forEach((job, i) => {
+          const card = cards[i];
+          if (!card) return;
+          const reqRep = reputationRequirement(job);
+          const meta = card.querySelector('.card-meta-list');
+          if (meta && reqRep > 0) {
+            const row = document.createElement('div');
+            row.className = 'card-meta-row';
+            row.innerHTML = `<span class="card-meta-label">Reputação:</span><span class="card-meta-value" style="color:${Game.state.reputation < reqRep?'var(--danger)':'var(--primary)'}">${reqRep} ⭐ ${Game.state.reputation < reqRep?'🔒':'✓'}</span>`;
+            meta.appendChild(row);
+          }
+          const buttons = card.querySelectorAll('button');
+          const reqRepMet = Game.state.reputation >= reqRep;
+          buttons.forEach(btn => {
+            if (btn.textContent.includes('Candidatar-se')) {
+              btn.disabled = btn.disabled || !reqRepMet || Game.state.benefit.active || inPrison();
+              if (Game.state.benefit.active) btn.textContent = 'Saia do benefício primeiro';
+              else if (inPrison()) btn.textContent = '🚔 Em prisão';
+              else if (!reqRepMet) btn.textContent = `Exige ${reqRep} Reputação`;
+            }
+          });
+        });
+      };
+
+      // ---- Prison / monthly systems ----
+      const originalAdvanceTime = Game.advanceTime.bind(Game);
+      Game.advanceTime = function(days=1) {
+        ensureExpansionState();
+        const beforePrison = this.state.prisonDays;
+        originalAdvanceTime(days);
+        if (beforePrison > 0) {
+          this.state.prisonDays = Math.max(0, beforePrison - days);
+          if (beforePrison > 0 && this.state.prisonDays === 0) {
+            UI.notify('🔓 Liberdade', 'Sua pena de 4 meses terminou. Você pode voltar às atividades normais.', 'success', '🔓');
+          }
+        }
+        // Low-energy neglect behaves as progressive "rest debt".
+        if (this.state.energy <= 20) {
+          this.state.restDebt = Math.min(100, this.state.restDebt + days * 8);
+          if (this.state.restDebt >= 40) {
+            this.state.health = Math.max(1, this.state.health - Math.min(6, Math.ceil(this.state.restDebt / 20)));
+          }
+        } else {
+          this.state.restDebt = Math.max(0, this.state.restDebt - days * 5);
+        }
+      };
+
+      const originalSleep = Game.sleep.bind(Game);
+      Game.sleep = function() {
+        if (prisonBlock('Você não pode realizar atividades normais durante a prisão.')) return;
+        originalSleep();
+        this.state.restDebt = Math.max(0, this.state.restDebt - 25);
+      };
+
+      const originalRest = Game.rest.bind(Game);
+      Game.rest = function() {
+        if (prisonBlock('Você não pode descansar normalmente durante a prisão.')) return;
+        originalRest();
+        this.state.restDebt = Math.max(0, this.state.restDebt - 15);
+      };
+
+      // Increased health impact while preserving the existing death logic.
+      const originalAdvanceForHealth = Game.advanceTime.bind(Game);
+      Game.advanceTime = function(days=1) {
+        const before = {hunger:this.state.hunger, sleep:this.state.sleepDebt};
+        originalAdvanceForHealth(days);
+        // Extra progressive penalty only when the need was already critical.
+        if (before.hunger <= 10) this.state.health = Math.max(1, this.state.health - Math.min(4, days * 2));
+        if (before.sleep >= 85) this.state.health = Math.max(1, this.state.health - Math.min(4, days * 2));
+      };
+
+      // Monthly expansion cycle is layered on top of the existing monthly system.
+      const originalMonthly = Game.processMonthlyCycle.bind(Game);
+      Game.processMonthlyCycle = function() {
+        ensureExpansionState();
+        const cashBefore = this.state.cash;
+        originalMonthly();
+
+        const s = this.state;
+        let expansionExpenses = 0;
+        let benefitPayment = 0;
+        const detail = [];
+
+        // Utilities: electricity + water are recurring household costs.
+        const house = HOUSING_DATA.find(h=>h.id===s.house);
+        let electricity = house && s.house !== 'rua' ? Math.max(80, Math.floor((house.price || house.rent || 500) * 0.0007)) : 0;
+        let water = house && s.house !== 'rua' ? Math.max(50, Math.floor((house.price || house.rent || 500) * 0.00045)) : 0;
+        const utilityTotal = electricity + water;
+
+        // Islands generate their own maintenance.
+        let islandMaint = 0;
+        for (const id of Object.keys(s.islandsOwned || {})) {
+          const island = ISLANDS_DATA.find(i=>i.id===id);
+          if (island) islandMaint += island.maint;
+        }
+
+        // Benefit payment happens automatically at month end.
+        if (s.benefit.active) {
+          benefitPayment = 700;
+          s.cash += 700;
+          s.benefit.totalReceived += 700;
+          s.benefit.nextPaymentDay = s.stats.totalDays + (31 - s.day);
+          detail.push({label:'🏠 Benefício mensal',value:700,positive:true});
+        }
+
+        const totalExtra = utilityTotal + islandMaint;
+        if (totalExtra > 0) {
+          if (s.cash >= totalExtra) {
+            s.cash -= totalExtra;
+            s.expenses.totalPaid += totalExtra;
+            detail.push({label:'💡 Luz + 💧 Água + ilhas',value:-totalExtra,positive:false});
+          } else {
+            const paid = Math.max(0, s.cash);
+            const deficit = totalExtra - paid;
+            s.cash = 0;
+            s.expenses.debt += deficit;
+            s.expenses.missedPayments += 1;
+            s.expenses.pending.push({day:s.stats.totalDays, amount:deficit, reason:'Despesas recorrentes'});
+            detail.push({label:'⚠️ Despesas pendentes',value:-deficit,positive:false});
+            UI.notify('⚠️ Pagamento pendente', `Faltaram ${Formatter.money(deficit)} para cobrir despesas recorrentes.`, 'warning', '💸');
+
+            // A necessary residence expense being unpaid removes the residence.
+            if (house && s.house !== 'rua') {
+              const lostHouse = house.name;
+              s.house = 'rua';
+              UI.notify('🏠 Residência perdida', `${lostHouse} foi perdida por falta de pagamento das despesas necessárias.`, 'danger', '🏠');
+            }
+          }
+        }
+
+        // Existing monthly cycle can leave a negative balance. Convert it into explicit debt.
+        if (s.cash < 0) {
+          const deficit = Math.abs(s.cash);
+          s.cash = 0;
+          s.expenses.debt += deficit;
+          s.expenses.missedPayments += 1;
+        }
+
+        // Exceptional imprisonment after accumulated severe delinquency.
+        if (s.expenses.debt >= 100000 && s.expenses.missedPayments >= 3 && s.prisonDays <= 0) {
+          s.prisonDays = 120;
+          UI.notify('🚔 Consequência excepcional', 'Sua inadimplência acumulada atingiu um nível grave. Pena: 4 meses.', 'danger', '🚔');
+        }
+
+        if (detail.length) {
+          const box = document.getElementById('expansion-monthly-log');
+          if (box) box.innerHTML = detail.map(d=>`<div class="breakdown-row"><span>${d.label}</span><strong style="color:${d.positive?'var(--success)':'var(--danger)'}">${d.positive?'+':''}${Formatter.money(d.value)}</strong></div>`).join('');
+        }
+
+        this.recalculateNetWorth();
+        UI.renderAll();
+      };
+
+      // ---- Add new islands/country value to net worth without removing existing calculation. ----
+      const originalNetWorth = Game.recalculateNetWorth.bind(Game);
+      Game.recalculateNetWorth = function() {
+        originalNetWorth();
+        ensureExpansionState();
+        for (const id of Object.keys(this.state.islandsOwned || {})) {
+          const island = ISLANDS_DATA.find(i=>i.id===id);
+          if (island) this.state.netWorth += island.price;
+        }
+        if (this.state.countryOwned) this.state.netWorth += COUNTRY_PRICE;
+        this.checkAchievements();
+        this.checkObjectives();
+      };
+
+      // ---- Purchase actions ----
+      Game.buyIsland = function(id) {
+        ensureExpansionState();
+        if (prisonBlock('Você não pode comprar propriedades durante a prisão.')) return;
+        const island = ISLANDS_DATA.find(i=>i.id===id);
+        if (!island) return;
+        if (this.state.islandsOwned[id]) {
+          UI.notify('Já é sua!', 'Você já possui esta ilha.', 'warning', '🏝️');
+          return;
+        }
+        if (this.state.cash < island.price) {
+          UI.notify('Patrimônio insuficiente', `Você precisa de ${Formatter.money(island.price)} para comprar esta ilha.`, 'warning', '🏝️');
+          return;
+        }
+        if (!confirm(`Comprar ${island.name} por ${Formatter.money(island.price)}?`)) return;
+        this.state.cash -= island.price;
+        this.state.islandsOwned[id] = {purchasedDay:this.state.stats.totalDays};
+        this.state.reputation += 10;
+        UI.notify('🏝️ Nova propriedade', `${island.name} agora faz parte do seu patrimônio.`, 'gold', '🏝️');
+        this.recalculateNetWorth();
+        UI.renderAll();
+      };
+
+      Game.buyCountry = function() {
+        ensureExpansionState();
+        if (prisonBlock('Você não pode realizar esta compra durante a prisão.')) return;
+        if (this.state.countryOwned) {
+          UI.notify('País já adquirido', 'O país fictício já faz parte do seu patrimônio.', 'warning', '🌎');
+          return;
+        }
+        if (this.state.cash < COUNTRY_PRICE) {
+          UI.notify('Fortuna insuficiente', `Você precisa de ${Formatter.money(COUNTRY_PRICE)} em dinheiro disponível.`, 'warning', '🌎');
+          return;
+        }
+        if (!confirm(`Confirmar compra do país fictício por ${Formatter.money(COUNTRY_PRICE)}? Esta é uma aquisição de endgame.`)) return;
+        this.state.cash -= COUNTRY_PRICE;
+        this.state.countryOwned = true;
+        this.state.reputation += 100;
+        UI.notify('🌎 CONQUISTA DE ENDGAME', 'O país fictício agora faz parte do seu patrimônio.', 'gold', '🌎');
+        Confetti.boom(220);
+        this.recalculateNetWorth();
+        UI.renderAll();
+      };
+
+      // ---- Company sale with 50/50 chance and cooldown. ----
+      Game.sellBusiness = function(bizId) {
+        ensureExpansionState();
+        if (prisonBlock('Você não pode negociar empresas durante a prisão.')) return;
+        const b = this.state.businesses[bizId];
+        const meta = BUSINESSES_DATA.find(x=>x.id===bizId);
+        if (!b || !b.owned || !meta) return;
+        if (this.state.stats.totalDays < this.state.companySaleNextDay) {
+          const remaining = this.state.companySaleNextDay - this.state.stats.totalDays;
+          UI.notify('Negociação em espera', `Você poderá tentar vender uma empresa novamente em ${remaining} dia(s).`, 'warning', '⏳');
+          return;
+        }
+        const valuation = Math.floor(meta.basePrice * (1 + (b.level - 1) * 0.8));
+        if (!confirm(`Tentar vender ${meta.name} por ${Formatter.money(Math.floor(valuation*0.9))}? A chance é de 50%.`)) return;
+
+        this.state.companySaleNextDay = this.state.stats.totalDays + 90;
+        const success = Math.random() < 0.5;
+        this.state.companySaleHistory.push({bizId,day:this.state.stats.totalDays,success});
+        if (success) {
+          const saleValue = Math.floor(valuation * 0.9);
+          delete this.state.businesses[bizId];
+          this.state.cash += saleValue;
+          UI.notify('💼 Empresa vendida!', `${meta.name} foi vendida por ${Formatter.money(saleValue)}.`, 'gold', '💰');
+          Confetti.boom(120);
+        } else {
+          UI.notify('❌ Negociação recusada', `${meta.name} continua no seu patrimônio. Tente novamente após o período de espera.`, 'warning', '💼');
+        }
+        this.recalculateNetWorth();
+        UI.renderAll();
+      };
+
+      const originalRenderBusinesses = UI.renderBusinesses.bind(UI);
+      UI.renderBusinesses = function() {
+        originalRenderBusinesses();
+        const grid = document.getElementById('businesses-grid');
+        if (!grid) return;
+        const cards = grid.querySelectorAll('.item-card');
+        BUSINESSES_DATA.forEach((biz,i)=>{
+          const b = Game.state.businesses[biz.id];
+          if (!b || !b.owned || !cards[i]) return;
+          const holder = cards[i].querySelector('.btn')?.parentElement;
+          if (!holder) return;
+          const sell = document.createElement('button');
+          sell.className = 'btn btn-outline-danger expansion-sell-btn';
+          sell.style.marginTop = '8px';
+          sell.innerText = '💼 Tentar vender empresa (50%)';
+          sell.onclick = ()=>Game.sellBusiness(biz.id);
+          holder.appendChild(sell);
+        });
+      };
+
+      // ---- Block relevant existing actions while imprisoned. ----
+      ['study','buyHouse','sellHouse','buyVehicle','sellVehicle','buyBusiness','upgradeBusiness','sellCollectionItem','leisure'].forEach(method=>{
+        if (typeof Game[method] !== 'function') return;
+        const original = Game[method].bind(Game);
+        Game[method] = function(...args) {
+          if (prisonBlock('Esta atividade está bloqueada durante os 4 meses de prisão.')) return;
+          return original(...args);
+        };
+      });
+
+      // ---- Inject UI using the game's existing visual language. ----
+      const style = document.createElement('style');
+      style.textContent = `
+        .expansion-panel{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px;margin-bottom:18px}
+        .expansion-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+        .expansion-card{background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px}
+        .expansion-card h3{font-family:var(--font-heading);font-size:1.05rem;margin-bottom:6px}
+        .expansion-card p{font-size:.82rem;color:var(--text-muted);line-height:1.45}
+        .expansion-value{font-family:var(--font-heading);font-weight:800;font-size:1.15rem;color:var(--gold);margin:8px 0}
+        .expansion-status{font-size:.8rem;color:var(--text-muted);margin:8px 0}
+        .expansion-prison{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.06)}
+        .expansion-prison strong{color:#f87171}
+        .expansion-benefit{border-color:rgba(16,185,129,.35);background:rgba(16,185,129,.06)}
+        @media(max-width:640px){.expansion-grid{grid-template-columns:1fr}}
+      `;
+      document.head.appendChild(style);
+
+      const nav = document.getElementById('main-tabs');
+      const navBtn = document.createElement('button');
+      navBtn.className = 'tab-btn';
+      navBtn.dataset.tab = 'tab-patrimonio';
+      navBtn.innerHTML = '🌎 Patrimônio';
+      nav.appendChild(navBtn);
+
+      const pane = document.createElement('section');
+      pane.className = 'tab-pane';
+      pane.id = 'tab-patrimonio';
+      pane.innerHTML = `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">🌎 Patrimônio Especial & Endgame</h2>
+            <p class="section-subtitle">Ilhas, despesas recorrentes e a aquisição fictícia de endgame.</p>
+          </div>
+        </div>
+        <div id="expansion-status"></div>
+        <div class="expansion-panel">
+          <div class="section-header"><div><h3 class="section-title">🏝️ Ilhas Privadas</h3><p class="section-subtitle">Patrimônios extremamente valiosos. Você pode possuir várias ilhas ao mesmo tempo.</p></div></div>
+          <div class="expansion-grid" id="islands-grid"></div>
+        </div>
+        <div class="expansion-panel">
+          <div class="section-header"><div><h3 class="section-title">🌎 País Fictício</h3><p class="section-subtitle">Uma conquista puramente fictícia e de endgame do LifeRPG.</p></div></div>
+          <div class="expansion-card">
+            <h3>🌎 República de LifeRPG</h3>
+            <p>Um país fictício que pode ser adquirido como parte do patrimônio do jogador. Não representa administração ou soberania de países reais.</p>
+            <div class="expansion-value">R$ 1.000.000.000.000</div>
+            <div id="country-status" class="expansion-status"></div>
+            <button id="btn-buy-country" class="btn btn-gold">🌎 Comprar país fictício</button>
+          </div>
+        </div>
+        <div class="expansion-panel">
+          <div class="section-header"><div><h3 class="section-title">💸 Despesas & Dívidas</h3><p class="section-subtitle">Acompanhe contas recorrentes, atrasos e consequências.</p></div></div>
+          <div class="expansion-grid">
+            <div class="expansion-card"><h3>💡 Contas mensais</h3><p>Luz e água variam conforme a residência. Ilhas possuem manutenção própria. Carros e moradia continuam usando os custos já existentes.</p><div id="expansion-expenses-summary"></div></div>
+            <div class="expansion-card" id="expansion-debt-card"><h3>📌 Dívida acumulada</h3><div id="expansion-debt" class="expansion-value">R$ 0</div><p id="expansion-missed">Nenhum pagamento perdido.</p></div>
+          </div>
+          <div id="expansion-monthly-log" class="breakdown-list"></div>
+        </div>
+      `;
+      document.querySelector('main.app-container').insertBefore(pane, document.getElementById('tab-carreira'));
+
+      // Career benefit card.
+      const career = document.getElementById('tab-carreira');
+      const benefitPanel = document.createElement('div');
+      benefitPanel.className = 'expansion-panel expansion-benefit';
+      benefitPanel.innerHTML = `
+        <div class="section-header"><div><h3 class="section-title">🏠 Não trabalhar — Benefício</h3><p class="section-subtitle">Opção alternativa à carreira. Valor mensal: R$ 700.</p></div></div>
+        <div class="expansion-grid">
+          <div><h3>Status</h3><p id="benefit-status"></p><p id="benefit-next" class="expansion-status"></p></div>
+          <div><h3>Regras</h3><p>Enquanto estiver ativo, você não pode possuir emprego. Para voltar ao mercado, saia do benefício.</p></div>
+          <div><button id="btn-benefit-action" class="btn btn-success"></button></div>
+        </div>`;
+      career.insertBefore(benefitPanel, career.querySelector('#jobs-grid'));
+
+      navBtn.addEventListener('click', ()=>{
+        document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+        navBtn.classList.add('active');
+        pane.classList.add('active');
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+
+      // ---- UI renderers ----
+      const originalRenderAll = UI.renderAll.bind(UI);
+      UI.renderAll = function() {
+        ensureExpansionState();
+        originalRenderAll();
+        renderExpansionUI();
+      };
+
+      function renderExpansionUI() {
+        const s = Game.state;
+        const status = document.getElementById('expansion-status');
+        if (status) {
+          status.innerHTML = s.prisonDays > 0
+            ? `<div class="expansion-panel expansion-prison"><h3 class="section-title">🚔 Prisão por inadimplência grave</h3><p><strong>Tempo restante: ${s.prisonDays} dia(s)</strong></p><p>Durante a pena, trabalho, cursos, compras, negócios e atividades de liberdade ficam bloqueados.</p><button class="btn btn-secondary" style="margin-top:10px" onclick="Game.advanceTime(1)">⏭️ Aguardar 1 dia</button></div>`
+            : '';
+        }
+
+        const islandsGrid = document.getElementById('islands-grid');
+        if (islandsGrid) {
+          islandsGrid.innerHTML = ISLANDS_DATA.map(i=>{
+            const owned = Boolean(s.islandsOwned[i.id]);
+            const can = s.cash >= i.price && !inPrison();
+            return `<div class="expansion-card ${owned?'item-card current':''}">
+              <h3>${i.icon} ${i.name}</h3><p>${i.desc}</p>
+              <div class="expansion-value">${Formatter.money(i.price)}</div>
+              <p>Manutenção mensal: <strong>${Formatter.money(i.maint)}</strong></p>
+              <div class="expansion-status">${owned?'✅ Pertence ao seu patrimônio.':'🔒 Ainda não adquirida.'}</div>
+              ${owned?'<button class="btn btn-success" disabled>✓ Propriedade adquirida</button>':`<button class="btn btn-gold" ${can?'':'disabled'} onclick="Game.buyIsland('${i.id}')">Comprar ilha</button>`}
+            </div>`;
+          }).join('');
+        }
+
+        const countryStatus = document.getElementById('country-status');
+        const countryBtn = document.getElementById('btn-buy-country');
+        if (countryStatus && countryBtn) {
+          countryStatus.innerText = s.countryOwned ? '✅ País fictício adquirido e registrado no patrimônio.' : `🔒 Requer ${Formatter.money(COUNTRY_PRICE)} em dinheiro disponível.`;
+          countryBtn.disabled = s.countryOwned || s.cash < COUNTRY_PRICE || inPrison();
+          countryBtn.innerText = s.countryOwned ? '✓ País adquirido' : '🌎 Comprar país fictício';
+        }
+
+        const debt = document.getElementById('expansion-debt');
+        const missed = document.getElementById('expansion-missed');
+        if (debt) debt.innerText = Formatter.money(s.expenses.debt);
+        if (missed) missed.innerText = s.expenses.missedPayments ? `${s.expenses.missedPayments} pagamento(s) perdido(s).` : 'Nenhum pagamento perdido.';
+
+        const bStatus = document.getElementById('benefit-status');
+        const bNext = document.getElementById('benefit-next');
+        const bBtn = document.getElementById('btn-benefit-action');
+        if (bStatus && bBtn) {
+          bStatus.innerText = s.benefit.active ? '🟢 Ativo — R$ 700/mês' : '⚪ Inativo';
+          bNext.innerText = s.benefit.active ? 'Próximo pagamento: no fechamento do mês.' : 'Você pode se inscrever se estiver desempregado.';
+          bBtn.disabled = false;
+          bBtn.innerText = s.benefit.active ? 'Sair do benefício' : '🏠 Inscrever-se';
+          bBtn.className = s.benefit.active ? 'btn btn-outline-danger' : 'btn btn-success';
+        }
+      }
+
+      document.getElementById('btn-buy-country').addEventListener('click', ()=>Game.buyCountry());
+      document.getElementById('btn-benefit-action').addEventListener('click', ()=>{
+        if (Game.state.benefit.active) Game.leaveBenefit();
+        else Game.joinBenefit();
+      });
+
+      // Initial render happens through Game.init after this expansion is installed.
+    })();
+
+
+    /* ==========================================================================
+       LIFE RPG — CORREÇÕES DE POSSE, NOTIFICAÇÕES, COLEÇÕES E CARREIRA
+       Compatibilidade: migra saves antigos sem apagar progresso.
+       ========================================================================== */
+    (() => {
+      // ---------- Migration / state ----------
+      function ensureOwnershipState() {
+        const s = Game.state;
+
+        if (!s.vehiclesOwned || typeof s.vehiclesOwned !== 'object' || Array.isArray(s.vehiclesOwned)) {
+          s.vehiclesOwned = {};
+        }
+        if (!s.housesOwned || typeof s.housesOwned !== 'object' || Array.isArray(s.housesOwned)) {
+          s.housesOwned = {};
+        }
+
+        // Migrate the currently equipped assets from older saves.
+        if (s.vehicle && s.vehicle !== 'a_pe' && !s.vehiclesOwned[s.vehicle]) {
+          s.vehiclesOwned[s.vehicle] = { purchasedDay: s.stats?.totalDays || 1 };
+        }
+        if (s.house && s.house !== 'rua') {
+          const oldHouse = HOUSING_DATA.find(h => h.id === s.house);
+          if (oldHouse && !oldHouse.isRent && oldHouse.price > 0 && !s.housesOwned[s.house]) {
+            s.housesOwned[s.house] = { purchasedDay: s.stats?.totalDays || 1 };
+          }
+        }
+
+        if (!s.collectionWorkDays || typeof s.collectionWorkDays !== 'number') s.collectionWorkDays = 0;
+        if (!s.collectionLastWorkDropDay || typeof s.collectionLastWorkDropDay !== 'number') {
+          s.collectionLastWorkDropDay = 0;
+        }
+
+        s.bolsaFamilia = Object.assign({
+          status: 'nao_inscrito',
+          requestDay: null,
+          approvedDay: null,
+          totalReceived: 0
+        }, s.bolsaFamilia || {});
+
+        if (!['nao_inscrito','solicitacao_enviada','aprovado','recusado'].includes(s.bolsaFamilia.status)) {
+          s.bolsaFamilia.status = 'nao_inscrito';
+        }
+      }
+
+      const ownershipEnsureOriginal = Game.loadSave.bind(Game);
+      Game.loadSave = function() {
+        ownershipEnsureOriginal();
+        ensureOwnershipState();
+      };
+      ensureOwnershipState();
+
+      // ---------- Vehicles: multiple simultaneous ownership ----------
+      Game.setActiveVehicle = function(vehId) {
+        ensureOwnershipState();
+        if (vehId === 'a_pe') {
+          this.state.vehicle = 'a_pe';
+          UI.notify('🚶 Transporte ativo', 'Você está a pé. Seus carros continuam guardados na garagem.', 'success', '🚶');
+        } else if (this.state.vehiclesOwned[vehId]) {
+          this.state.vehicle = vehId;
+          const veh = VEHICLES_DATA.find(v => v.id === vehId);
+          UI.notify('🚗 Carro ativo', `${veh ? veh.name : 'Veículo'} agora é seu carro ativo.`, 'success', '🚗');
+        }
+        this.recalculateNetWorth();
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      Game.sellOwnedVehicle = function(vehId) {
+        ensureOwnershipState();
+        const veh = VEHICLES_DATA.find(v => v.id === vehId);
+        if (!veh || veh.id === 'a_pe' || !this.state.vehiclesOwned[vehId]) return;
+        if (!confirm(`Vender ${veh.name} por aproximadamente ${Formatter.money(Math.floor(veh.price * 0.80))}?`)) return;
+
+        const saleValue = Math.floor(veh.price * 0.80);
+        this.state.cash += saleValue;
+        delete this.state.vehiclesOwned[vehId];
+
+        if (this.state.vehicle === vehId) {
+          const remaining = Object.keys(this.state.vehiclesOwned);
+          this.state.vehicle = remaining[0] || 'a_pe';
+        }
+
+        UI.notify('🚗 Veículo vendido', `${veh.name} foi vendido por ${Formatter.money(saleValue)}.`, 'success', '🚗');
+        this.recalculateNetWorth();
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      Game.buyVehicle = function(vehId) {
+        ensureOwnershipState();
+        if (typeof inPrison === 'function' && inPrison()) {
+          prisonBlock('Você não pode comprar veículos durante a prisão.');
+          return;
+        }
+
+        const veh = VEHICLES_DATA.find(v => v.id === vehId);
+        if (!veh || veh.id === 'a_pe') return;
+
+        if (this.state.vehiclesOwned[vehId]) {
+          UI.notify('Já está na garagem', `${veh.name} já pertence a você.`, 'warning', '🚗');
+          return;
+        }
+
+        if (this.state.cash < veh.price) {
+          UI.notify('Saldo insuficiente!', `Você precisa de ${Formatter.money(veh.price)} para comprar ${veh.name}.`, 'warning', '💰');
+          AudioEngine.buzzer();
+          return;
+        }
+
+        if (!confirm(`Comprar ${veh.name} por ${Formatter.money(veh.price)}? O veículo será adicionado à sua garagem sem substituir os outros.`)) return;
+
+        this.state.cash -= veh.price;
+        this.state.vehiclesOwned[vehId] = { purchasedDay: this.state.stats.totalDays };
+        // First purchased vehicle becomes active; later purchases stay stored.
+        if (!this.state.vehicle || this.state.vehicle === 'a_pe') this.state.vehicle = vehId;
+
+        AudioEngine.levelUp();
+        UI.notify('🔑 Carro adicionado à garagem', `${veh.name} agora pertence a você. Seus outros veículos foram mantidos.`, 'gold', veh.icon);
+        this.recalculateNetWorth();
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      // Keep old manual-selling entry point compatible.
+      Game.sellVehicle = function() {
+        ensureOwnershipState();
+        const active = this.state.vehicle;
+        if (!active || active === 'a_pe' || !this.state.vehiclesOwned[active]) {
+          UI.notify('Nenhum veículo ativo para vender', 'Escolha um carro da garagem primeiro.', 'warning', '🚗');
+          return;
+        }
+        this.sellOwnedVehicle(active);
+      };
+
+      // ---------- Houses: multiple simultaneous ownership ----------
+      Game.setActiveHouse = function(houseId) {
+        ensureOwnershipState();
+        const house = HOUSING_DATA.find(h => h.id === houseId);
+        if (!house) return;
+
+        if (house.isRent) {
+          this.state.house = houseId;
+          UI.notify('🏠 Moradia atualizada', `Agora você mora em ${house.name}. Seus imóveis comprados continuam registrados.`, 'success', house.icon);
+        } else if (this.state.housesOwned[houseId]) {
+          this.state.house = houseId;
+          UI.notify('🏠 Imóvel selecionado', `${house.name} agora é sua residência atual.`, 'success', house.icon);
+        }
+        this.recalculateNetWorth();
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      Game.sellOwnedHouse = function(houseId) {
+        ensureOwnershipState();
+        const house = HOUSING_DATA.find(h => h.id === houseId);
+        if (!house || house.isRent || !this.state.housesOwned[houseId]) return;
+        if (!confirm(`Vender ${house.name} por aproximadamente ${Formatter.money(Math.floor(house.price * 0.90))}?`)) return;
+
+        const saleValue = Math.floor(house.price * 0.90);
+        this.state.cash += saleValue;
+        delete this.state.housesOwned[houseId];
+
+        if (this.state.house === houseId) {
+          const remaining = Object.keys(this.state.housesOwned);
+          this.state.house = remaining[0] || 'rua';
+        }
+
+        UI.notify('🏠 Imóvel vendido', `${house.name} foi vendido por ${Formatter.money(saleValue)}.`, 'success', '🏠');
+        this.recalculateNetWorth();
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      Game.buyHouse = function(houseId) {
+        ensureOwnershipState();
+        if (typeof inPrison === 'function' && inPrison()) {
+          prisonBlock('Você não pode comprar imóveis durante a prisão.');
+          return;
+        }
+
+        const house = HOUSING_DATA.find(h => h.id === houseId);
+        if (!house) return;
+
+        // Renting changes where the player lives, but never sells owned properties.
+        if (house.isRent) {
+          if (this.state.house === houseId) {
+            UI.notify('Já é sua moradia', `Você já mora em ${house.name}.`, 'warning', '🏠');
+            return;
+          }
+          this.state.house = houseId;
+          UI.notify('🏠 Novo aluguel', `Você se mudou para ${house.name}. Seus imóveis próprios continuam na sua coleção.`, 'success', house.icon);
+          this.recalculateNetWorth();
+          this.saveToStorage(false);
+          UI.renderAll();
+          return;
+        }
+
+        if (this.state.housesOwned[houseId]) {
+          this.state.house = houseId;
+          UI.notify('🏠 Imóvel já adquirido', `${house.name} foi selecionado como sua residência atual.`, 'warning', house.icon);
+          UI.renderAll();
+          return;
+        }
+
+        if (this.state.cash < house.price) {
+          UI.notify('Saldo insuficiente!', `Você precisa de ${Formatter.money(house.price)} para comprar ${house.name}.`, 'warning', '🏠');
+          AudioEngine.buzzer();
+          return;
+        }
+
+        if (!confirm(`Comprar ${house.name} por ${Formatter.money(house.price)}? O imóvel será adicionado ao seu patrimônio sem vender os anteriores.`)) return;
+
+        this.state.cash -= house.price;
+        this.state.housesOwned[houseId] = { purchasedDay: this.state.stats.totalDays };
+        this.state.house = houseId;
+
+        AudioEngine.fanfare();
+        Confetti.boom(100);
+        UI.notify('📜 Escritura assinada', `${house.name} foi adicionado aos seus imóveis. Nenhum imóvel anterior foi vendido.`, 'gold', house.icon);
+        this.recalculateNetWorth();
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      Game.sellHouse = function() {
+        ensureOwnershipState();
+        const active = this.state.house;
+        if (!active || active === 'rua' || !this.state.housesOwned[active]) {
+          UI.notify('Nenhum imóvel próprio ativo', 'Selecione um imóvel próprio da sua coleção para vender.', 'warning', '🏠');
+          return;
+        }
+        this.sellOwnedHouse(active);
+      };
+
+      // ---------- Garage renderer ----------
+      UI.renderVehicles = function() {
+        ensureOwnershipState();
+        const grid = document.getElementById('vehicles-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        const ownedIds = Object.keys(this && Game.state.vehiclesOwned ? Game.state.vehiclesOwned : {});
+        const owned = ownedIds.map(id => VEHICLES_DATA.find(v => v.id === id)).filter(Boolean);
+
+        // If a legacy save has no owned cars, still show the catalog.
+        const all = VEHICLES_DATA.filter(v => v.id !== 'a_pe');
+        const catalog = all.length ? all : owned;
+
+        const garageHeader = document.createElement('div');
+        garageHeader.style.cssText = 'grid-column:1/-1;padding:4px 2px 12px;color:var(--text-muted);font-size:.84rem;';
+        garageHeader.innerHTML = `🚗 <strong style="color:var(--text);">${owned.length}</strong> carro(s) próprio(s) • O carro com <strong style="color:var(--success);">● Ativo</strong> é o utilizado atualmente.`;
+        grid.appendChild(garageHeader);
+
+        catalog.forEach(veh => {
+          const isOwned = Boolean(Game.state.vehiclesOwned[veh.id]);
+          const isCurrent = Game.state.vehicle === veh.id;
+          const canAfford = Game.state.cash >= veh.price;
+          const card = document.createElement('div');
+          card.className = `item-card ${isCurrent ? 'current' : ''}`;
+          card.innerHTML = `
+            <div>
+              <div class="card-top">
+                <div class="card-icon">${veh.icon}</div>
+                <div class="card-info">
+                  <div class="card-title">
+                    <span>${veh.name}</span>
+                    <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                      ${veh.rarity === 'lendario' ? '<span style="color:var(--gold);font-size:.72rem;font-weight:800;text-transform:uppercase;">★ Lendário</span>' : ''}
+                      ${isCurrent ? '<span style="color:var(--success);font-size:.8rem;">● Ativo</span>' : ''}
+                      ${isOwned && !isCurrent ? '<span style="color:var(--primary);font-size:.78rem;">✓ Na garagem</span>' : ''}
+                    </span>
+                  </div>
+                  <div class="card-desc">${veh.desc}</div>
+                </div>
+              </div>
+              <div class="card-meta-list">
+                <div class="card-meta-row"><span class="card-meta-label">Preço à vista:</span><span class="card-meta-value" style="color:var(--gold);font-weight:700;">${Formatter.money(veh.price)}</span></div>
+                <div class="card-meta-row"><span class="card-meta-label">Manutenção:</span><span class="card-meta-value" style="color:var(--danger);">${Formatter.money(veh.maint)}/mês</span></div>
+                <div class="card-meta-row"><span class="card-meta-label">Bônus de felicidade:</span><span class="card-meta-value" style="color:var(--success);">+${veh.happinessBonus}</span></div>
+              </div>
+            </div>
+            <div style="display:grid;gap:8px;">
+              ${isOwned
+                ? `${isCurrent
+                    ? '<button class="btn btn-secondary" disabled>🚗 Carro ativo</button>'
+                    : '<button class="btn btn-primary" onclick="Game.setActiveVehicle(\''+veh.id+'\')">Usar este carro</button>'}
+                   <button class="btn btn-outline-danger" onclick="Game.sellOwnedVehicle('${veh.id}')">Vender por ~${Formatter.money(Math.floor(veh.price*.80))}</button>`
+                : `<button class="btn btn-primary" ${canAfford?'':'disabled'} onclick="Game.buyVehicle('${veh.id}')">Comprar (${Formatter.money(veh.price)})</button>`}
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      };
+
+      // ---------- Property renderer ----------
+      UI.renderHousing = function() {
+        ensureOwnershipState();
+        const grid = document.getElementById('housing-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        const owned = Object.keys(Game.state.housesOwned)
+          .map(id => HOUSING_DATA.find(h => h.id === id)).filter(Boolean);
+
+        const header = document.createElement('div');
+        header.style.cssText = 'grid-column:1/-1;padding:4px 2px 12px;color:var(--text-muted);font-size:.84rem;';
+        header.innerHTML = `🏠 <strong style="color:var(--text);">${owned.length}</strong> imóvel(is) próprio(s) • Sua residência atual: <strong style="color:var(--success);">${(HOUSING_DATA.find(h=>h.id===Game.state.house)?.name)||'Rua'}</strong>`;
+        grid.appendChild(header);
+
+        HOUSING_DATA.forEach(house => {
+          const isOwned = Boolean(Game.state.housesOwned[house.id]);
+          const isCurrent = Game.state.house === house.id;
+          const canAfford = house.isRent ? Game.state.cash >= house.rent : Game.state.cash >= house.price;
+
+          const card = document.createElement('div');
+          card.className = `item-card ${isCurrent ? 'current' : ''}`;
+          card.innerHTML = `
+            <div>
+              <div class="card-top">
+                <div class="card-icon">${house.icon}</div>
+                <div class="card-info">
+                  <div class="card-title">
+                    <span>${house.name}</span>
+                    <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                      ${isCurrent ? '<span style="color:var(--success);font-size:.8rem;">● Residência atual</span>' : ''}
+                      ${isOwned ? '<span style="color:var(--primary);font-size:.78rem;">✓ Seu imóvel</span>' : ''}
+                    </span>
+                  </div>
+                  <div class="card-desc">${house.desc}</div>
+                </div>
+              </div>
+              <div class="card-meta-list">
+                <div class="card-meta-row"><span class="card-meta-label">${house.isRent?'Aluguel mensal':'Preço de compra'}:</span><span class="card-meta-value" style="color:var(--gold);font-weight:700;">${house.isRent?Formatter.money(house.rent)+'/mês':Formatter.money(house.price)}</span></div>
+                ${!house.isRent && house.maint>0?`<div class="card-meta-row"><span class="card-meta-label">Manutenção:</span><span class="card-meta-value" style="color:var(--danger);">${Formatter.money(house.maint)}/mês</span></div>`:''}
+                <div class="card-meta-row"><span class="card-meta-label">Bônus de felicidade:</span><span class="card-meta-value" style="color:var(--success);">+${house.happinessBonus}</span></div>
+              </div>
+            </div>
+            <div style="display:grid;gap:8px;">
+              ${isOwned
+                ? `${isCurrent
+                    ? '<button class="btn btn-secondary" disabled>🏠 Residência atual</button>'
+                    : '<button class="btn btn-primary" onclick="Game.setActiveHouse(\''+house.id+'\')">Morar neste imóvel</button>'}
+                   <button class="btn btn-outline-danger" onclick="Game.sellOwnedHouse('${house.id}')">Vender por ~${Formatter.money(Math.floor(house.price*.90))}</button>`
+                : `<button class="btn btn-primary" ${canAfford?'':'disabled'} onclick="Game.buyHouse('${house.id}')">${house.isRent?'Alugar':'Comprar'} (${Formatter.money(house.isRent?house.rent:house.price)})</button>`}
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      };
+
+      // ---------- Net worth: add all owned vehicles/properties without double counting active ones ----------
+      const netWorthBeforeOwnership = Game.recalculateNetWorth.bind(Game);
+      Game.recalculateNetWorth = function() {
+        ensureOwnershipState();
+        netWorthBeforeOwnership();
+        let extra = 0;
+
+        Object.keys(this.state.vehiclesOwned).forEach(id => {
+          if (id !== this.state.vehicle) {
+            const v = VEHICLES_DATA.find(x => x.id === id);
+            if (v) extra += v.price;
+          }
+        });
+
+        Object.keys(this.state.housesOwned).forEach(id => {
+          if (id !== this.state.house) {
+            const h = HOUSING_DATA.find(x => x.id === id);
+            if (h && !h.isRent) extra += h.price;
+          }
+        });
+
+        this.state.netWorth += extra;
+        this.checkAchievements();
+        this.checkObjectives();
+      };
+
+      // ---------- Notifications: compact bottom-right queue ----------
+      const toastQueue = [];
+      const activeToasts = new Set();
+      const MAX_TOASTS = 4;
+      const MAX_QUEUE = 12;
+
+      function showQueuedToast(item) {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = `toast ${item.type}`;
+        toast.innerHTML = `
+          <div class="toast-icon">${item.icon}</div>
+          <div class="toast-content">
+            <div class="toast-title">${item.title}</div>
+            <div class="toast-msg">${item.msg}</div>
+          </div>
+          <button class="toast-close" aria-label="Fechar">×</button>
+        `;
+        activeToasts.add(toast);
+        container.appendChild(toast);
+
+        let closed = false;
+        const close = () => {
+          if (closed) return;
+          closed = true;
+          toast.classList.add('hide');
+          setTimeout(() => {
+            activeToasts.delete(toast);
+            toast.remove();
+            if (toastQueue.length) showQueuedToast(toastQueue.shift());
+          }, 260);
+        };
+
+        toast.querySelector('.toast-close').onclick = close;
+        setTimeout(close, item.duration || 3600);
+      }
+
+      UI.notify = function(title, msg, type = 'success', icon = '🔔') {
+        const item = {title, msg, type, icon, duration: 3600};
+        if (activeToasts.size >= MAX_TOASTS) {
+          if (toastQueue.length >= MAX_QUEUE) toastQueue.shift();
+          toastQueue.push(item);
+          return;
+        }
+        showQueuedToast(item);
+      };
+
+      // ---------- Collection drops, based on WORK DAYS ----------
+      Game.getCollectionRarityRoll = function() {
+        const roll = Math.random() * 100;
+        if (roll < 89.5) return 'comum';
+        if (roll < 98.5) return 'raro';
+        if (roll < 99.5) return 'mitico';
+        return 'lendario';
+      };
+
+      Game.tryCollectionDrop = function(reason = 'jornada') {
+        // Daily travel/events/achievements no longer cause collection drops.
+        // A drop is awarded by the work system every ~30 successful work days.
+        return false;
+      };
+
+      Game.awardWorkCollectionDrop = function() {
+        ensureOwnershipState();
+        const available = COLLECTIONS_DATA.filter(item =>
+          !this.state.collectionHistory[item.id]
+        );
+        if (!available.length) return false;
+
+        let rarity = this.getCollectionRarityRoll();
+        let candidates = available.filter(item => item.rarity === rarity);
+        if (!candidates.length) {
+          rarity = rarity === 'lendario' ? 'mitico' : 'lendario';
+          candidates = available.filter(item => item.rarity === rarity);
+        }
+        if (!candidates.length) return false;
+
+        const item = candidates[Math.floor(Math.random() * candidates.length)];
+        return this.awardCollectionItem(item, 'work_drop');
+      };
+
+      const workForCollectionsOriginal = Game.work.bind(Game);
+      Game.work = function() {
+        ensureOwnershipState();
+        if (this.state.bolsaFamilia?.status === 'aprovado' && this.state.job !== 'desempregado') {
+          this.state.bolsaFamilia.status = 'nao_inscrito';
+          this.state.bolsaFamilia.requestDay = null;
+          this.state.bolsaFamilia.approvedDay = null;
+          this.state.benefit.active = false;
+        }
+
+        const beforeShifts = this.state.stats.shiftsWorked || 0;
+        workForCollectionsOriginal();
+        const afterShifts = this.state.stats.shiftsWorked || 0;
+
+        // Count only successfully completed work actions.
+        if (afterShifts > beforeShifts && this.state.job !== 'desempregado') {
+          this.state.collectionWorkDays = (this.state.collectionWorkDays || 0) + (afterShifts - beforeShifts);
+
+          if (this.state.collectionWorkDays >= 30) {
+            const dropped = this.awardWorkCollectionDrop();
+            if (dropped) {
+              this.state.collectionWorkDays = 0;
+              this.state.collectionLastWorkDropDay = this.state.stats.totalDays;
+              UI.notify('🎁 Drop especial!', 'Após cerca de 30 dias de trabalho, você encontrou um item Mítico ou Lendário.', 'gold', '🎁');
+            } else {
+              // No eligible items left: keep progress at the threshold without spamming.
+              this.state.collectionWorkDays = 30;
+            }
+          }
+          this.saveToStorage(false);
+        }
+      };
+
+      // Hide old common/rare entries from the active collection catalog without deleting
+      // their saved data. This preserves old saves while the new collection system is special-only.
+      const collectionRenderOriginal = UI.renderCollections.bind(UI);
+      UI.renderCollections = function() {
+        const originalData = window.__liferpgCollectionDataBackup || COLLECTIONS_DATA.slice();
+        window.__liferpgCollectionDataBackup = originalData;
+
+        const specialOnly = originalData.filter(item => ['mitico','lendario'].includes(item.rarity));
+        const previous = COLLECTIONS_DATA.splice(0, COLLECTIONS_DATA.length, ...specialOnly);
+        try {
+          collectionRenderOriginal();
+        } finally {
+          // Keep data objects in memory only as special items for the active system.
+          // Old save keys are never deleted.
+        }
+      };
+
+      // ---------- Career: resignation ----------
+      Game.resign = function() {
+        ensureOwnershipState();
+        if (typeof inPrison === 'function' && inPrison()) {
+          prisonBlock('Você não pode se demitir durante a prisão.');
+          return;
+        }
+        if (this.state.job === 'desempregado') {
+          UI.notify('Já está desempregado', 'Você não possui um emprego ativo para deixar.', 'warning', '💼');
+          return;
+        }
+
+        const job = JOBS_DATA.find(j => j.id === this.state.job);
+        if (!confirm(`Tem certeza que deseja se demitir de ${job ? job.name : 'seu emprego'}? O salário será encerrado imediatamente.`)) return;
+
+        const previousJob = this.state.job;
+        if (!this.state.careerHistory || typeof this.state.careerHistory !== 'object') this.state.careerHistory = {};
+        this.state.careerHistory[previousJob] = Object.assign({}, this.state.careerHistory[previousJob] || {}, {
+          leftDay: this.state.stats.totalDays,
+          careerDays: this.state.stats.totalCareerDays || 0
+        });
+
+        this.state.job = 'desempregado';
+        UI.notify('📤 Demissão concluída', 'Você está desempregado e pode procurar outro emprego.', 'success', '💼');
+        this.recalculateNetWorth();
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      // ---------- Bolsa Família: game simulation ----------
+      function bolsaRequirement(s) {
+        // Simple in-game eligibility rule: unemployed, low cash/net worth, no active business.
+        const hasBusiness = Object.values(s.businesses || {}).some(b => b && b.owned);
+        return s.job === 'desempregado' && s.cash <= 5000 && s.netWorth <= 15000 && !hasBusiness;
+      }
+
+      Game.requestBolsaFamilia = function() {
+        ensureOwnershipState();
+        const b = this.state.bolsaFamilia;
+
+        if (this.state.job !== 'desempregado') {
+          UI.notify('❌ Não elegível', 'O Bolsa Família do jogo só pode ser solicitado enquanto você estiver desempregado.', 'warning', '🏛️');
+          return;
+        }
+        if (['solicitacao_enviada','aprovado'].includes(b.status)) {
+          UI.notify('📋 Solicitação já registrada', `Status atual: ${b.status === 'aprovado' ? 'Benefício aprovado' : 'Solicitação enviada'}.`, 'warning', '🏛️');
+          return;
+        }
+        if (!bolsaRequirement(this.state)) {
+          b.status = 'recusado';
+          b.requestDay = this.state.stats.totalDays;
+          UI.notify('🏛️ Solicitação recusada', 'Pelos requisitos definidos no jogo, seu personagem não se enquadra no benefício neste momento.', 'warning', '🏛️');
+          this.saveToStorage(false);
+          UI.renderAll();
+          return;
+        }
+
+        b.status = 'solicitacao_enviada';
+        b.requestDay = this.state.stats.totalDays;
+        UI.notify('📋 Solicitação enviada', 'Sua solicitação foi registrada. A análise será concluída em alguns dias do jogo.', 'success', '🏛️');
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      Game.cancelBolsaFamilia = function() {
+        ensureOwnershipState();
+        this.state.bolsaFamilia = {status:'nao_inscrito',requestDay:null,approvedDay:null,totalReceived:this.state.bolsaFamilia.totalReceived||0};
+        this.state.benefit.active = false;
+        this.state.benefit.nextPaymentDay = null;
+        UI.notify('🏛️ Benefício encerrado', 'Você saiu do Bolsa Família no jogo.', 'success', '🏛️');
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      // Make employment automatically end an approved benefit.
+      const applyJobWithBenefitOriginal = Game.applyJob.bind(Game);
+      Game.applyJob = function(jobId) {
+        applyJobWithBenefitOriginal(jobId);
+        ensureOwnershipState();
+        if (this.state.job !== 'desempregado' && this.state.bolsaFamilia.status === 'aprovado') {
+          this.state.bolsaFamilia.status = 'nao_inscrito';
+          this.state.bolsaFamilia.requestDay = null;
+          this.state.bolsaFamilia.approvedDay = null;
+          this.state.benefit.active = false;
+          this.state.benefit.nextPaymentDay = null;
+          UI.notify('🏛️ Bolsa Família encerrado', 'O benefício foi encerrado porque você voltou ao emprego.', 'warning', '🏛️');
+        }
+        this.saveToStorage(false);
+        UI.renderAll();
+      };
+
+      // ---------- Monthly/daily Bolsa processing ----------
+      const advanceForBolsaOriginal = Game.advanceTime.bind(Game);
+      Game.advanceTime = function(days=1) {
+        ensureOwnershipState();
+        const before = this.state.stats.totalDays || 1;
+        advanceForBolsaOriginal(days);
+
+        const b = this.state.bolsaFamilia;
+        if (b.status === 'solicitacao_enviada') {
+          const requestDay = Number(b.requestDay || before);
+          if ((this.state.stats.totalDays - requestDay) >= 7) {
+            if (this.state.job === 'desempregado' && bolsaRequirement(this.state)) {
+              b.status = 'aprovado';
+              b.approvedDay = this.state.stats.totalDays;
+              this.state.benefit.active = true;
+              this.state.benefit.nextPaymentDay = this.state.stats.totalDays + (31 - this.state.day);
+              UI.notify('🏛️ Bolsa Família aprovado', 'Seu personagem foi aprovado e receberá R$ 700 por mês no jogo.', 'gold', '🏛️');
+            } else {
+              b.status = 'recusado';
+              UI.notify('🏛️ Bolsa Família recusado', 'Os requisitos do jogo não foram mantidos durante a análise.', 'warning', '🏛️');
+            }
+          }
+        }
+
+        if (b.status === 'aprovado' && this.state.job !== 'desempregado') {
+          b.status = 'nao_inscrito';
+          b.requestDay = null;
+          b.approvedDay = null;
+          this.state.benefit.active = false;
+          this.state.benefit.nextPaymentDay = null;
+        }
+
+        this.saveToStorage(false);
+      };
+
+      // ---------- Monthly recurring costs for all owned assets ----------
+      const monthlyOwnershipOriginal = Game.processMonthlyCycle.bind(Game);
+      Game.processMonthlyCycle = function() {
+        ensureOwnershipState();
+        const cashBefore = this.state.cash;
+        monthlyOwnershipOriginal();
+
+        let extraVehicleMaint = 0;
+        Object.keys(this.state.vehiclesOwned).forEach(id => {
+          if (id === this.state.vehicle) return;
+          const v = VEHICLES_DATA.find(x => x.id === id);
+          if (v && v.maint > 0) extraVehicleMaint += v.maint;
+        });
+
+        let extraHouseMaint = 0;
+        Object.keys(this.state.housesOwned).forEach(id => {
+          if (id === this.state.house) return;
+          const h = HOUSING_DATA.find(x => x.id === id);
+          if (h && h.maint > 0) extraHouseMaint += h.maint;
+        });
+
+        const extra = extraVehicleMaint + extraHouseMaint;
+        if (extra > 0) {
+          if (this.state.cash >= extra) {
+            this.state.cash -= extra;
+            this.state.expenses.totalPaid += extra;
+            UI.notify('💸 Patrimônio múltiplo', `Manutenção dos outros veículos/imóveis: ${Formatter.money(extra)}.`, 'warning', '💸');
+          } else {
+            const deficit = extra - Math.max(0, this.state.cash);
+            this.state.cash = 0;
+            this.state.expenses.debt += deficit;
+            this.state.expenses.missedPayments += 1;
+            this.state.expenses.pending.push({day:this.state.stats.totalDays, amount:deficit, reason:'Manutenção de patrimônio múltiplo'});
+            UI.notify('⚠️ Manutenção pendente', `Faltaram ${Formatter.money(deficit)} para manter seu patrimônio múltiplo.`, 'warning', '💸');
+          }
+        }
+
+        this.recalculateNetWorth();
+        UI.renderAll();
+      };
+
+      // ---------- Career UI / Bolsa UI ----------
+      const careerRenderOriginal = UI.renderJobs.bind(UI);
+      UI.renderJobs = function() {
+        careerRenderOriginal();
+
+        const career = document.getElementById('tab-carreira');
+        const jobsGrid = document.getElementById('jobs-grid');
+        if (!career || !jobsGrid) return;
+
+        let panel = document.getElementById('career-actions-expansion');
+        if (!panel) {
+          panel = document.createElement('div');
+          panel.id = 'career-actions-expansion';
+          panel.className = 'expansion-panel';
+          jobsGrid.parentNode.insertBefore(panel, jobsGrid);
+        }
+
+        const s = Game.state;
+        const b = s.bolsaFamilia || {status:'nao_inscrito',totalReceived:0};
+        const labels = {
+          nao_inscrito: '⚪ Não inscrito',
+          solicitacao_enviada: '🟡 Solicitação enviada',
+          aprovado: '🟢 Benefício aprovado',
+          recusado: '🔴 Benefício recusado'
+        };
+
+        const currentJob = s.job === 'desempregado' ? 'Desempregado' : (JOBS_DATA.find(j=>j.id===s.job)?.name || s.job);
+        const eligible = bolsaRequirement(s);
+
+        panel.innerHTML = `
+          <div class="section-header">
+            <div>
+              <h3 class="section-title">💼 Situação profissional</h3>
+              <p class="section-subtitle">Gerencie seu emprego, demissão e benefícios.</p>
+            </div>
+          </div>
+          <div class="expansion-grid">
+            <div class="expansion-card">
+              <h3>📌 Estado atual</h3>
+              <p><strong>${currentJob}</strong></p>
+              ${s.job !== 'desempregado'
+                ? `<button class="btn btn-outline-danger" id="btn-resign" style="margin-top:8px;">📤 Demitir-se</button>`
+                : '<p style="color:var(--text-muted);margin-top:8px;">Você está desempregado.</p>'}
+            </div>
+            <div class="expansion-card">
+              <h3>🏛️ Bolsa Família — LifeRPG</h3>
+              <p>Status: <strong>${labels[b.status] || labels.nao_inscrito}</strong></p>
+              <p style="font-size:.78rem;">Regra do jogo: desempregado, até R$ 5.000 em dinheiro, patrimônio até R$ 15.000 e sem empresa ativa.</p>
+              ${b.status === 'nao_inscrito' || b.status === 'recusado'
+                ? `<button class="btn btn-success" id="btn-bolsa-request" ${eligible ? '' : 'disabled'}>🏛️ Solicitar benefício</button>`
+                : b.status === 'solicitacao_enviada'
+                  ? `<button class="btn btn-secondary" disabled>⏳ Em análise</button>`
+                  : `<button class="btn btn-outline-danger" id="btn-bolsa-cancel">Encerrar benefício</button>`}
+            </div>
+          </div>
+        `;
+
+        const resignBtn = document.getElementById('btn-resign');
+        if (resignBtn) resignBtn.onclick = (event) => {
+          event.preventDefault();
+          Game.resign();
+        };
+
+        const reqBtn = document.getElementById('btn-bolsa-request');
+        if (reqBtn) reqBtn.onclick = () => Game.requestBolsaFamilia();
+
+        const cancelBtn = document.getElementById('btn-bolsa-cancel');
+        if (cancelBtn) cancelBtn.onclick = () => Game.cancelBolsaFamilia();
+      };
+
+      // ---------- Render notification/status and styling ----------
+      const ownershipStyle = document.createElement('style');
+      ownershipStyle.textContent = `
+        #toast-container{
+          position:fixed !important;
+          right:18px !important;
+          bottom:18px !important;
+          left:auto !important;
+          top:auto !important;
+          transform:none !important;
+          width:min(330px,calc(100vw - 28px)) !important;
+          max-width:330px !important;
+          display:flex !important;
+          flex-direction:column !important;
+          align-items:stretch !important;
+          gap:7px !important;
+          z-index:30000 !important;
+          pointer-events:none !important;
+        }
+        #toast-container .toast{
+          min-width:0 !important;
+          width:100% !important;
+          box-sizing:border-box !important;
+          padding:8px 10px !important;
+          gap:8px !important;
+          border-radius:10px !important;
+          box-shadow:var(--shadow-lg) !important;
+          pointer-events:auto !important;
+        }
+        #toast-container .toast-icon{font-size:1.15rem !important;}
+        #toast-container .toast-title{font-size:.78rem !important;margin-bottom:1px !important;}
+        #toast-container .toast-msg{font-size:.70rem !important;line-height:1.25 !important;}
+        #toast-container .toast-close{
+          border:0;background:transparent;color:var(--text-muted);font-size:1rem;
+          line-height:1;cursor:pointer;padding:2px 3px;align-self:flex-start;
+        }
+        #toast-container .toast-close:hover{color:var(--text);}
+        #toast-container .toast.hide{opacity:0 !important;transform:translateX(12px) !important;}
+        @media(max-width:640px){
+          #toast-container{right:10px !important;bottom:10px !important;width:min(300px,calc(100vw - 20px)) !important;}
+        }
+        #career-actions-expansion{margin-bottom:18px;}
+      `;
+      document.head.appendChild(ownershipStyle);
+
+      // Delegated fallback: the career panel is rebuilt dynamically by renderJobs.
+      // This keeps the resignation button working even when the panel is re-rendered.
+      document.addEventListener('click', function(event) {
+        const button = event.target && event.target.closest ? event.target.closest('#btn-resign') : null;
+        if (!button) return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        if (button.dataset.resignationHandled === '1') return;
+        button.dataset.resignationHandled = '1';
+        try { Game.resign(); } finally { button.dataset.resignationHandled = '0'; }
+      }, true);
+
+      // Keep UI status coherent with the new systems.
+      const allRenderOriginal = UI.renderAll.bind(UI);
+      UI.renderAll = function() {
+        ensureOwnershipState();
+        allRenderOriginal();
+      };
+    })();
 
     // Run game on DOM load
     window.addEventListener('DOMContentLoaded', () => {
